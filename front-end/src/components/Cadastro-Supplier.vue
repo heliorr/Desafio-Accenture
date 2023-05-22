@@ -1,12 +1,24 @@
 <template>
     <form>
-        <label for="cnpj">
-            CNPJ:
-            <input type="text" name="cnpj" id="cnpj" key="cnpj">
+        <label for="cnpjCpf">
+            CNPJ ou CPF:
+            <input type="text" name="cnpjCpf" id="cnpjCpf" key="cnpjCpf">
         </label>
-        <label for="company">
-            Nome Fantasia:
-            <input type="text" name="company" id="company" key="company">
+        <label for="rg">
+            RG:
+            <input type="text" name="rg" id="rg" key="rg">
+        </label>
+        <label for="dateBirth">
+            Data de Nascimento:
+            <input type="text" name="dateBirth" id="dateBirth" key="dateBirth">
+        </label>
+        <label for="name">
+            Nome:
+            <input type="text" name="name" id="name" key="name">
+        </label>
+        <label for="email">
+            E-mail:
+            <input type="text" name="email" id="email" key="email">
         </label>
         <label for="cep">
             CEP:
