@@ -2,8 +2,8 @@
     <header>
         <h3>Empresa</h3>
             <section>
-                <p>Cadastro Empresa</p>
-                <p>Cadastro Fornecedor</p>
+                <router-link to="/company">Cadastro Empresa</router-link>
+                <router-link to="/supplier">Cadastro Fornecedor</router-link>
             </section>
     </header>
 </template>

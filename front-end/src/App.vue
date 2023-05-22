@@ -1,27 +1,15 @@
 <template>
-  <HeaderCompany/>
-  <main class="content">
-    <CadastroCompany/>
-  </main>
+  <HeaderRouter />
+  <router-view />
 </template>
 
 <script>
-import CadastroCompany from './components/Cadastro-Company.vue'
-import HeaderCompany from './components/Header-Company.vue'
+  import HeaderRouter from './components/Header-Router.vue'
 
 export default {
   name: 'App',
   components: {
-    HeaderCompany,
-    CadastroCompany
+    HeaderRouter,
   }
 }
 </script>
-
-<style>
-.content {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-</style>
