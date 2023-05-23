@@ -113,10 +113,9 @@ export default {
           if(this.data.uf == "PR" && this.cnpj.length == 11){
             const idade = this.calculaIdade(Date.parse(this.date));
               if(idade < 18){
-                console.log('invalido')
+                alert('Cadastro negado para menores de idade no estado do Paraná')
               }else{
                 console.log('certo');
-
               }
           }else{
             console.log(this.data.uf);
