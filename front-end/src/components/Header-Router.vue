@@ -2,9 +2,9 @@
     <header>
         <nav class="bg-white border-gray-200 px-4 lg:px-6 py-2.5 dark:bg-gray-800">
             <div class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
-                <a href="#" class="flex items-center">
+                <router-link to="/company" class="flex items-center">
                     <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">Accenture</span>
-                </a>
+                </router-link>
                 <div class="hidden justify-between items-center w-full lg:flex lg:w-auto lg:order-1" id="mobile-menu-2">
                     <ul class="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0">
                         <li>
@@ -19,19 +19,3 @@
         </nav>
     </header>
 </template>
-
-<style>
-    header {
-        display: flex;
-        flex-grow: 3;
-        justify-content: space-between;
-    }
-    h3 {
-        width: 70%;
-    }
-    section {
-        width: 30%;
-        display: flex;
-        justify-content: space-between;
-    }
-</style>
