@@ -1,14 +1,14 @@
 <template>
     <form>
         <label for="cnpjCpf">
-            CNPJ ou CPF:
-            <input v-model="cnpj" id="cnpjCpf">
+            CNPJ/CPF:
+            <input v-model="cnpj" id="cnpjCpf" @change="checkCpf">
         </label>
-        <label for="rg">
+        <label :class="this.disableRg"  for="rg">
             RG:
             <input v-model="RG" id="rg">
         </label>
-        <label for="dateBirth">
+        <label :class="this.disableRg" for="dateBirth">
             Data de Nascimento:
             <input v-model="date" id="dateBirth">
         </label>
@@ -50,9 +50,11 @@ export default {
   data() {
     return {
       cnpj: '',
+      disableRg: 'hide',
       RG: '',
       date: '',
       name: '',
+      cep: '',
       number: '',
       email: '',
       data: {
@@ -84,6 +86,13 @@ export default {
               }
           }
       },
+      checkCpf: async function (){
+          if(this.cnpj.length == 11){
+            this.disableRg = '';
+          }else{
+            this.disableRg = 'hide';
+          }
+      },
       submit(e){
           e.preventDefault()
           console.log(this.data.address.uf);
@@ -97,6 +106,10 @@ form {
   display: flex;
   flex-direction: column;
   width: 50%;
+}
+
+.hide {
+    display: none;
 }
 
 form label {
