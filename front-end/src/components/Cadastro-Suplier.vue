@@ -4,14 +4,17 @@
             CNPJ/CPF:
             <input v-model="cnpj" id="cnpjCpf" @change="checkCpf" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
         </label>
-        <label :class="this.disableRgeDate"  for="rg">
+        <div class="flex justify-between">
+          <label :class="this.disableRgeDate"  for="rg">
             RG:
             <input v-model="RG" id="rg" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-        </label>
-        <label :class="this.disableRgeDate" for="dateBirth">
+          </label>
+          <label :class="this.disableRgeDate" for="dateBirth">
             Data de Nascimento:
             <input v-model="date" id="dateBirth" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-        </label>
+          </label>
+        </div>
+        
         <label for="name">
             Nome:
             <input v-model="name" id="name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">

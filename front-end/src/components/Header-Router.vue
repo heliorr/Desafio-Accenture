@@ -1,8 +1,8 @@
 <template>
-    <header>
+    <header class="bg-current">
         <nav class="bg-white border-gray-200 px-4 lg:px-6 py-2.5 dark:bg-gray-800">
             <div class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
-                <router-link to="/company" class="flex items-center">
+                <router-link to="/" class="flex items-center">
                     <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">Accenture</span>
                 </router-link>
                 <div class="hidden justify-between items-center w-full lg:flex lg:w-auto lg:order-1" id="mobile-menu-2">
