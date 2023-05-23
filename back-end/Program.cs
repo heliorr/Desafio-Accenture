@@ -1,5 +1,6 @@
 global using back_end.models;
 global using back_end.services.company;
+global using back_end.services.Suplier;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -9,6 +10,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<ICompanyService, CompanyService>();
+builder.Services.AddScoped<ISuplierService, SuplierService>();
 
 var app = builder.Build();
 
