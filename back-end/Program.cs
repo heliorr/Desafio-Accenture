@@ -1,3 +1,4 @@
+global using back_end.models;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
