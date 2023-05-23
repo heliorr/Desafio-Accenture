@@ -1,6 +1,6 @@
 <template>
   <main class="content">
-    <router-link to="/company/cadastro"><button>Cadastrar Empresa</button></router-link>
+    <router-link to="/suplier/cadastro"><button>Cadastrar Fornecedor</button></router-link>
     <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>

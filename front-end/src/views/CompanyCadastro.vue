@@ -1,16 +1,16 @@
 <template>
   <main class="content">
-    <CadastroSupplier/>
+    <CadastroCompany/>
   </main>
 </template>
 
 <script>
-import CadastroSupplier from '../components/Cadastro-Supplier.vue'
+import CadastroCompany from '../components/Cadastro-Company.vue'
 
 export default {
   name: 'App',
   components: {
-    CadastroSupplier
+    CadastroCompany
   }
 }
 </script>
