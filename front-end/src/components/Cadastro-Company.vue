@@ -75,8 +75,8 @@ export default {
           }
       },
       submit(e){
-          e.preventDefault()
-          console.log(this.data.address.uf);
+        e.preventDefault();
+        console.log(this.data.address.uf);
       }
   }
 }

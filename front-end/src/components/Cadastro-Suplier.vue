@@ -104,9 +104,23 @@ export default {
             this.disableRgeDate = 'hide';
           }
       },
+      calculaIdade(nascimento){
+        const hoje = new Date();
+        return Math.floor(Math.ceil(Math.abs(nascimento - hoje.getTime()) / (1000 * 3600 * 24)) / 365.25);
+      },
       submit(e){
           e.preventDefault()
-          console.log(this.data.address.uf);
+          if(this.data.uf == "PR" && this.cnpj.length == 11){
+            const idade = this.calculaIdade(Date.parse(this.date));
+              if(idade < 18){
+                console.log('invalido')
+              }else{
+                console.log('certo');
+
+              }
+          }else{
+            console.log(this.data.uf);
+          }
       }
   }
 }
