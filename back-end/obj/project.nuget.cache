@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "gLewtBOkIcV34drazOJS7/K6ae6zj4Eg/jAbu/Ah95T1x7jzbwG11kFlsitWJBJyh8AQfIUqA/qAdfGBVb7rOA==",
+  "success": true,
+  "projectFilePath": "/home/helio/Projeto Pessoal/Desafio-Accenture/back-end/back-end.csproj",
+  "expectedPackageFiles": [
+    "/home/helio/.nuget/packages/microsoft.extensions.apidescription.server/3.0.0/microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
+    "/home/helio/.nuget/packages/microsoft.openapi/1.2.3/microsoft.openapi.1.2.3.nupkg.sha512",
+    "/home/helio/.nuget/packages/swashbuckle.aspnetcore/6.2.3/swashbuckle.aspnetcore.6.2.3.nupkg.sha512",
+    "/home/helio/.nuget/packages/swashbuckle.aspnetcore.swagger/6.2.3/swashbuckle.aspnetcore.swagger.6.2.3.nupkg.sha512",
+    "/home/helio/.nuget/packages/swashbuckle.aspnetcore.swaggergen/6.2.3/swashbuckle.aspnetcore.swaggergen.6.2.3.nupkg.sha512",
+    "/home/helio/.nuget/packages/swashbuckle.aspnetcore.swaggerui/6.2.3/swashbuckle.aspnetcore.swaggerui.6.2.3.nupkg.sha512"
+  ],
+  "logs": []
+}
