@@ -10,21 +10,28 @@ namespace back_end.Controllers
     [Route("api/[controller]")]
     public class CompanyController : ControllerBase
     {
-        private static List<Company> Companys = new List<Company> {
-            new Company(),
-            new Company { name = "empresa nova" }
-        };
+        private readonly ICompanyService _companyService;
+
+        public CompanyController (ICompanyService companyService){
+            _companyService = companyService;
+        }
 
         [HttpGet("GetAll")]
-        public ActionResult<List<Company>> Get()
+        public async Task<ActionResult<ServiceResponse<List<Company>>>> Get()
         {
-            return Ok(Companys);
+            return Ok(await _companyService.GetAllCompanys());
         }
 
         [HttpGet("{id}")]
-        public ActionResult<Company> GetSingle(int id)
+        public async Task<ActionResult<ServiceResponse<Company>>> GetSingle(int id)
         {
-            return Ok(Companys.FirstOrDefault(c => c.Id == id));
+            return Ok(await _companyService.GetCompanyById(id));
+        }
+
+        [HttpPost]
+        public async Task<ActionResult<ServiceResponse<List<Company>>>> AddCompany(Company newCompany)
+        {
+            return Ok(await _companyService.AddCompany(newCompany));
         }
     }
 }

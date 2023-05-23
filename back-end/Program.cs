@@ -1,4 +1,5 @@
 global using back_end.models;
+global using back_end.services.company;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -7,6 +8,7 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddScoped<ICompanyService, CompanyService>();
 
 var app = builder.Build();
 
