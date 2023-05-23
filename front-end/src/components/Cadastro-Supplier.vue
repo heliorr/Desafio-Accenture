@@ -4,11 +4,11 @@
             CNPJ/CPF:
             <input v-model="cnpj" id="cnpjCpf" @change="checkCpf">
         </label>
-        <label :class="this.disableRg"  for="rg">
+        <label :class="this.disableRgeDate"  for="rg">
             RG:
             <input v-model="RG" id="rg">
         </label>
-        <label :class="this.disableRg" for="dateBirth">
+        <label :class="this.disableRgeDate" for="dateBirth">
             Data de Nascimento:
             <input v-model="date" id="dateBirth">
         </label>
@@ -36,6 +36,10 @@
             Cidade:
             <input v-model="data.cidade" id="city">
         </label>
+        <label for="state">
+            Estado:
+            <input v-model="data.uf" id="state">
+        </label>
         <label for="residence">
             Numero:
             <input v-model="number" id="residence">
@@ -50,7 +54,7 @@ export default {
   data() {
     return {
       cnpj: '',
-      disableRg: 'hide',
+      disableRgeDate: 'hide',
       RG: '',
       date: '',
       name: '',
@@ -88,9 +92,9 @@ export default {
       },
       checkCpf: async function (){
           if(this.cnpj.length == 11){
-            this.disableRg = '';
+            this.disableRgeDate = '';
           }else{
-            this.disableRg = 'hide';
+            this.disableRgeDate = 'hide';
           }
       },
       submit(e){
