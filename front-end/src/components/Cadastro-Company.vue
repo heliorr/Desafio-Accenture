@@ -1,47 +1,49 @@
 <template>
-    <form @change="checkForm">
+    <form >
         <label for="cnpj">
             CNPJ:
-            <input type="text" name="cnpj" id="cnpj" key="cnpj">
+            <input v-model="cnpj" id="cnpj">
         </label>
         <label for="company">
             Nome Fantasia:
-            <input type="text" name="company" id="company" key="company">
+            <input v-model="name" id="company">
         </label>
         <label for="cep">
             CEP:
-            <input v-model="cep">
+            <input v-model="cep" id="cep" @change="checkCep">
         </label>
         <label for="district">
             Bairro:
-            <input type="text" v-model="data.bairro">
+            <input v-model="data.bairro" id="district">
         </label>
         <label for="street">
             Rua:
-            <input type="text" v-model="data.logradouro">
+            <input v-model="data.logradouro" id="street">
         </label>
         <label for="city">
             Cidade:
-            <input type="text" v-model="data.cidade">
+            <input v-model="data.cidade" id="city">
         </label>
         <label for="state">
             Estado:
-            <input type="text" v-model="data.uf">
+            <input v-model="data.uf" id="state">
         </label>
         <label for="residence">
             Numero:
-            <input type="text" name="residence" id="residence" key="residence">
+            <input v-model="number" id="residence">
         </label>
         <button @click="submit">Cadastrar</button>
     </form>
 </template>
 
 <script>
-
 export default {
   name: 'App',
   data() {
     return {
+      cnpj: '',
+      name: '',
+      number: '',
       cep: '',
       data: {
         bairro: '',
@@ -52,7 +54,7 @@ export default {
     }
   },
   methods:{
-      checkForm: async function (){
+      checkCep: async function (){
           if(this.cep.length != 8){
             console.log('invalido1')
           }else{
