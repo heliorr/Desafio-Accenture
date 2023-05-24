@@ -47,7 +47,7 @@ namespace back_end.services.Suplier
         public async Task<ServiceResponse<List<suplier>>> GetSuplierByName(string name)
         {
             var serviceResponse = new ServiceResponse<List<suplier>>();
-            var suplier = Supliers.FirstOrDefault(c => c.name.Contains(name));
+            var suplier = Supliers;//.FirstOrDefault(c => c.name.Contains(name));
             serviceResponse.data = suplier;
             return serviceResponse;
         }

@@ -1,10 +1,15 @@
 global using back_end.models;
 global using back_end.services.company;
 global using back_end.services.Suplier;
+global using Microsoft.EntityFrameworkCore;
+global using back_end.Data;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
+builder.Services.AddDbContext<DataContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
