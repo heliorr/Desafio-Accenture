@@ -8,17 +8,27 @@
                 <th scope="col" class="px-6 py-3">Codigo</th>
                 <th scope="col" class="px-6 py-3">Nome</th>
                 <th scope="col" class="px-6 py-3">CNPJ</th>
-                <th scope="col" class="px-6 py-3">Fornecedores</th>
+                <th scope="col" class="px-6 py-3">Contato</th>
                 <th scope="col" class="px-6 py-3">Ações</th>
             </tr>
         </thead>
         <tbody>
-            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"></td>
-                <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"></td>
-                <td class="px-6 py-4"></td>
-                <td class="px-6 py-4"></td>
-                <td class="px-6 py-4"></td>
+            <tr v-for="suplier in supliers" :key="suplier.id" class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                  {{ suplier.id }}
+                </td>
+                <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                  {{ suplier.name }}
+                </td>
+                <td class="px-6 py-4">
+                  {{ suplier.cnpjCpf }}
+                </td>
+                <td class="px-6 py-4">
+                  {{ suplier.email }}
+                </td>
+                <td class="px-6 py-4">
+                  <button>Deletar</button>
+                </td>
             </tr>
         </tbody>
     </table>
@@ -28,14 +38,21 @@
 <script>
 
 export default {
-  name: 'App',
-  data() {
-    return {
-      Filter: '',
+  name: 'SuplierMain',
+    data() {
+      return {
+        supliers: [],
+        filter: '',
+      };
+    },
+    created(){
+      fetch("https://localhost:7189/api/suplier/GetAll")
+        .then(response => response.json())
+        .then(data => (this.supliers = data.data));
+        console.log(this.supliers);
+    },
+    components: {
     }
-  },
-  components: {
-  }
 }
 </script>
 

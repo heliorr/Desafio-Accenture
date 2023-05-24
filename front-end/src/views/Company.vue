@@ -40,12 +40,7 @@ export default {
       };
     },
     created(){
-      let opts = {
-        headers: {
-          'mode':'no-cors'
-        }
-      }
-      fetch("https://localhost:7189/api/company/GetAll", opts)
+      fetch("https://localhost:7189/api/company/GetAll")
         .then(response => response.json())
         .then(data => (this.companys = data.data));
     },

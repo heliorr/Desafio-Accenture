@@ -12,8 +12,8 @@ using back_end.Data;
 namespace back_end.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20230524170431_suplier")]
-    partial class suplier
+    [Migration("20230524211222_Company")]
+    partial class Company
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -33,11 +33,23 @@ namespace back_end.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<string>("bairro")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("cep")
                         .HasColumnType("int");
 
+                    b.Property<string>("cidade")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("cnpj")
                         .HasColumnType("int");
+
+                    b.Property<string>("logradouro")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("name")
                         .IsRequired()
@@ -45,6 +57,10 @@ namespace back_end.Migrations
 
                     b.Property<int>("numberHouse")
                         .HasColumnType("int");
+
+                    b.Property<string>("uf")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
@@ -59,8 +75,16 @@ namespace back_end.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<string>("bairro")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("cep")
                         .HasColumnType("int");
+
+                    b.Property<string>("cidade")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("cnpjCpf")
                         .HasColumnType("int");
@@ -69,6 +93,10 @@ namespace back_end.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("logradouro")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -81,6 +109,10 @@ namespace back_end.Migrations
 
                     b.Property<int>("rg")
                         .HasColumnType("int");
+
+                    b.Property<string>("uf")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
