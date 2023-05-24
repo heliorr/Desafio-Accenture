@@ -74,7 +74,14 @@ export default {
         cidade: '',
         uf: '',
       },
+      companys: [],
     }
+  },
+  create(){
+    fetch("https://localhost:7189/api/company/GetAll")
+      .then(response => response.json())
+      .then(data => (this.companys = data));
+      console.log(this.companys)
   },
   methods:{
       checkCep: async function (){

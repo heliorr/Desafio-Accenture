@@ -12,12 +12,18 @@
             </tr>
         </thead>
         <tbody>
-            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"></td>
-                <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"></td>
-                <td class="px-6 py-4"></td>
-                <td class="px-6 py-4"></td>
-                <td class="px-6 py-4"></td>
+            <tr v-for="company in companys" :key="company.id" class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                  {{ company.id }}
+                </td>
+                <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                  {{ company.name }}
+                </td>
+                <td class="px-6 py-4">
+                  {{ company.cnpj }}
+                </td>
+                <td class="px-6 py-4">t</td>
+                <td class="px-6 py-4">t</td>
             </tr>
         </tbody>
     </table>
@@ -27,17 +33,23 @@
 <script>
 
 export default {
-  name: 'App',
-  components: {
-  }
+  name: 'CompanyMain',
+    data() {
+      return {
+        companys: [],
+      };
+    },
+    created(){
+      let opts = {
+        headers: {
+          'mode':'no-cors'
+        }
+      }
+      fetch("https://localhost:7189/api/company/GetAll", opts)
+        .then(response => response.json())
+        .then(data => (this.companys = data.data));
+    },
+    components: {
+    }
 }
 </script>
-
-<style>
-.content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-</style>
