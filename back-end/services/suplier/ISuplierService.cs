@@ -11,8 +11,6 @@ namespace back_end.services.Suplier
 
         Task<ServiceResponse<suplier>> GetSuplierById(int id);
 
-        Task<ServiceResponse<suplier>> GetSuplierByCnpjCpf(int cnpjCpf);
-
         Task<ServiceResponse<List<suplier>>> AddSuplier(suplier newSuplier);
     }
 }

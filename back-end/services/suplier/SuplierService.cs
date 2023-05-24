@@ -42,13 +42,5 @@ namespace back_end.services.Suplier
             serviceResponse.data = dbSupliers;
             return serviceResponse;
         }
-
-        public async Task<ServiceResponse<suplier>> GetSuplierByCnpjCpf(int cnpjCpf)
-        {
-            var serviceResponse = new ServiceResponse<suplier>();
-            var dbSupliers = await _context.suplier.FirstOrDefaultAsync(c => c.cnpjCpf == cnpjCpf);
-            serviceResponse.data = dbSupliers;
-            return serviceResponse;
-        }
     }
 }

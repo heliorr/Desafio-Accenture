@@ -28,12 +28,6 @@ namespace back_end.Controllers
             return Ok(await _suplierService.GetSuplierById(id));
         }
 
-        [HttpGet("{cnpjCpf}")]
-        public async Task<ActionResult<ServiceResponse<suplier>>> Get(int cnpjCpf)
-        {
-            return Ok(await _suplierService.GetSuplierByCnpjCpf(cnpjCpf));
-        }
-
         [HttpPost]
         public async Task<ActionResult<ServiceResponse<List<suplier>>>> AddSuplier(suplier newSuplier)
         {

@@ -7,7 +7,7 @@
             <tr>
                 <th scope="col" class="px-6 py-3">Codigo</th>
                 <th scope="col" class="px-6 py-3">Nome</th>
-                <th scope="col" class="px-6 py-3">CNPJ</th>
+                <th scope="col" class="px-6 py-3">CNPJ/CPF</th>
                 <th scope="col" class="px-6 py-3">Contato</th>
                 <th scope="col" class="px-6 py-3">Ações</th>
             </tr>
@@ -26,8 +26,9 @@
                 <td class="px-6 py-4">
                   {{ suplier.email }}
                 </td>
-                <td class="px-6 py-4">
-                  <button>Deletar</button>
+                <td class="flex justify-between px-6 py-4">
+                  <button class="w-40 bg-blue-500 hover:bg-blue-700 text-white font-bold py-0 px-4 rounded">Detalhe</button>
+                  <button class="w-40 bg-red-500 hover:bg-red-700 text-white font-bold py-0 px-4 rounded">Deletar</button>
                 </td>
             </tr>
         </tbody>

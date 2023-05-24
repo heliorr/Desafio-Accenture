@@ -23,7 +23,14 @@
                   {{ company.cnpj }}
                 </td>
                 <td class="px-6 py-4">t</td>
-                <td class="px-6 py-4">t</td>
+                <td class="flex flex-row px-2 py-1">
+                  <button class="w-40 bg-green-500 hover:bg-green-700 text-white font-bold py-0 px-4 rounded">Adicionar Fornecedor</button>
+                  <div class="flex flex-col ml-1">
+                    <button class="w-40 bg-blue-500 hover:bg-blue-700 text-white font-bold py-0 px-4 rounded">Detalhe</button>
+                    <button class="w-40 bg-red-500 hover:bg-red-700 text-white font-bold py-0 px-4 rounded">Deletar</button>
+                  </div>
+                  
+                </td>
             </tr>
         </tbody>
     </table>
