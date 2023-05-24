@@ -1,14 +1,15 @@
 {
   "version": 2,
-  "dgSpecHash": "2TsmGPP27ExLB/OmSrD4GWe/1RWkO9b53CC+Li0SLUNmVWka8gLR1uhBhQwCb4r9bHyw7zJAi+22bq0NEadZ+w==",
+  "dgSpecHash": "PlVeQPHS1s6nFc9cSxlgBCx805Sc15x2t1Woegoo3C39izilrQjRz0VvR3WEnGaRpffztDaspp05htOCZEJgnQ==",
   "success": true,
   "projectFilePath": "/home/helio/Projeto Pessoal/Desafio-Accenture/back-end/back-end.csproj",
   "expectedPackageFiles": [
+    "/home/helio/.nuget/packages/automapper/12.0.1/automapper.12.0.1.nupkg.sha512",
     "/home/helio/.nuget/packages/azure.core/1.24.0/azure.core.1.24.0.nupkg.sha512",
     "/home/helio/.nuget/packages/azure.identity/1.6.0/azure.identity.1.6.0.nupkg.sha512",
     "/home/helio/.nuget/packages/humanizer.core/2.14.1/humanizer.core.2.14.1.nupkg.sha512",
     "/home/helio/.nuget/packages/microsoft.bcl.asyncinterfaces/1.1.1/microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
-    "/home/helio/.nuget/packages/microsoft.csharp/4.5.0/microsoft.csharp.4.5.0.nupkg.sha512",
+    "/home/helio/.nuget/packages/microsoft.csharp/4.7.0/microsoft.csharp.4.7.0.nupkg.sha512",
     "/home/helio/.nuget/packages/microsoft.data.sqlclient/5.0.1/microsoft.data.sqlclient.5.0.1.nupkg.sha512",
     "/home/helio/.nuget/packages/microsoft.data.sqlclient.sni.runtime/5.0.1/microsoft.data.sqlclient.sni.runtime.5.0.1.nupkg.sha512",
     "/home/helio/.nuget/packages/microsoft.data.sqlite.core/7.0.5/microsoft.data.sqlite.core.7.0.5.nupkg.sha512",

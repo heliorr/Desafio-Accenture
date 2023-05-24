@@ -13,42 +13,41 @@ namespace back_end.services.Suplier
             new suplier { name = "empresa nova" }
         };
 
+        private readonly DataContext _context;
+    
+        public SuplierService(DataContext context){
+            _context = context;
+        }
+
         public async Task<ServiceResponse<List<suplier>>> AddSuplier(suplier newSuplier)
         {
             var serviceResponse = new ServiceResponse<List<suplier>>();
-            Supliers.Add(newSuplier);
-            serviceResponse.data = Supliers;
+            _context.suplier.Add(newSuplier);
+            await _context.SaveChangesAsync();
             return serviceResponse;
         }
 
         public async Task<ServiceResponse<List<suplier>>> GetAllSupliers()
         {
             var serviceResponse = new ServiceResponse<List<suplier>>();
-            serviceResponse.data = Supliers;
+            var dbSupliers = await _context.suplier.ToListAsync();
+            serviceResponse.data = dbSupliers;
             return serviceResponse;
         }
 
         public async Task<ServiceResponse<suplier>> GetSuplierById(int id)
         {
             var serviceResponse = new ServiceResponse<suplier>();
-            var suplier = Supliers.FirstOrDefault(c => c.Id == id);
-            serviceResponse.data = suplier;
+            var dbSupliers = await _context.suplier.FirstOrDefaultAsync(c => c.Id == id);
+            serviceResponse.data = dbSupliers;
             return serviceResponse;
         }
 
         public async Task<ServiceResponse<suplier>> GetSuplierByCnpjCpf(int cnpjCpf)
         {
             var serviceResponse = new ServiceResponse<suplier>();
-            var suplier = Supliers.FirstOrDefault(c => c.cnpjCpf == cnpjCpf);
-            serviceResponse.data = suplier;
-            return serviceResponse;
-        }
-
-        public async Task<ServiceResponse<List<suplier>>> GetSuplierByName(string name)
-        {
-            var serviceResponse = new ServiceResponse<List<suplier>>();
-            var suplier = Supliers;//.FirstOrDefault(c => c.name.Contains(name));
-            serviceResponse.data = suplier;
+            var dbSupliers = await _context.suplier.FirstOrDefaultAsync(c => c.cnpjCpf == cnpjCpf);
+            serviceResponse.data = dbSupliers;
             return serviceResponse;
         }
     }

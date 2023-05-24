@@ -13,8 +13,6 @@ namespace back_end.services.Suplier
 
         Task<ServiceResponse<suplier>> GetSuplierByCnpjCpf(int cnpjCpf);
 
-        Task<ServiceResponse<List<suplier>>> GetSuplierByName(string name);
-
         Task<ServiceResponse<List<suplier>>> AddSuplier(suplier newSuplier);
     }
 }

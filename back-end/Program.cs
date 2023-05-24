@@ -1,5 +1,6 @@
 global using back_end.models;
 global using back_end.services.company;
+global using back_end.Dtos.Company;
 global using back_end.services.Suplier;
 global using Microsoft.EntityFrameworkCore;
 global using back_end.Data;
