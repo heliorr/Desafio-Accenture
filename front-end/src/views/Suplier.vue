@@ -6,7 +6,7 @@
     <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
-                <th scope="col" class="px-6 py-3">Codigo</th>
+                <th scope="col" class="px-6 py-3">Cod.</th>
                 <th scope="col" class="px-6 py-3">Nome</th>
                 <th scope="col" class="px-6 py-3">Endereço</th>
                 <th scope="col" class="px-6 py-3">CNPJ/CPF</th>
@@ -36,8 +36,8 @@
                   {{ suplier.email }}
                 </td>
                 <td class="flex justify-between px-6 py-4">
-                  <button class="w-40 bg-blue-500 hover:bg-blue-700 text-white font-bold py-0 px-4 rounded">Detalhe</button>
-                  <button class="w-40 bg-red-500 hover:bg-red-700 text-white font-bold py-0 px-4 rounded">Deletar</button>
+                  <button class="w-30 bg-blue-500 hover:bg-blue-700 text-white font-bold py-0 px-4 rounded">Detalhe</button>
+                  <button class="w-30 bg-red-500 hover:bg-red-700 text-white font-bold py-0 px-4 rounded">Deletar</button>
                 </td>
             </tr>
         </tbody>

@@ -42,5 +42,32 @@ namespace back_end.services.company
             serviceResponse.data = dbCompany;
             return serviceResponse;
         }
+
+        public async Task<ServiceResponse<List<Company>>> DeleteCompany(int id)
+        {
+            var serviceResponse = new ServiceResponse<List<Company>>();
+
+            try
+            {
+                var company = await _context.Company
+                    .FirstOrDefaultAsync(c => c.Id == id);
+                if (company is null)
+                    throw new Exception($"Character with Id '{id}' not found.");
+
+                _context.Company.Remove(company);
+
+                await _context.SaveChangesAsync();
+
+                serviceResponse.data =
+                    await _context.Company.ToListAsync();
+            }
+            catch (Exception ex)
+            {
+                serviceResponse.Sucess = false;
+                serviceResponse.Message = ex.Message;
+            }
+
+            return serviceResponse;
+        }
     }
 }

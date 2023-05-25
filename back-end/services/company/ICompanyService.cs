@@ -12,5 +12,7 @@ namespace back_end.services.company
         Task<ServiceResponse<Company>> GetCompanyById(int id);
 
         Task<ServiceResponse<List<Company>>> AddCompany(Company newCompany);
+        
+        Task<ServiceResponse<List<Company>>> DeleteCompany(int id);
     }
 }

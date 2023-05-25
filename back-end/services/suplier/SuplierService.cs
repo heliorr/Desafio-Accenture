@@ -42,5 +42,32 @@ namespace back_end.services.Suplier
             serviceResponse.data = dbSupliers;
             return serviceResponse;
         }
+
+        public async Task<ServiceResponse<List<suplier>>> DeleteSuplier(int id)
+        {
+            var serviceResponse = new ServiceResponse<List<suplier>>();
+
+            try
+            {
+                var suplier = await _context.suplier
+                    .FirstOrDefaultAsync(c => c.Id == id);
+                if (suplier is null)
+                    throw new Exception($"Character with Id '{id}' not found.");
+
+                _context.suplier.Remove(suplier);
+
+                await _context.SaveChangesAsync();
+
+                serviceResponse.data =
+                    await _context.suplier.ToListAsync();
+            }
+            catch (Exception ex)
+            {
+                serviceResponse.Sucess = false;
+                serviceResponse.Message = ex.Message;
+            }
+
+            return serviceResponse;
+        }
     }
 }

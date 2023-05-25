@@ -12,5 +12,7 @@ namespace back_end.services.Suplier
         Task<ServiceResponse<suplier>> GetSuplierById(int id);
 
         Task<ServiceResponse<List<suplier>>> AddSuplier(suplier newSuplier);
+
+        Task<ServiceResponse<List<suplier>>> DeleteSuplier(int id);
     }
 }
