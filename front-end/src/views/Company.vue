@@ -28,12 +28,8 @@
                 </td>
                 <td class="px-6 py-4"> <p v-for="values in company.companyssuplier.$values" :key="values.companyId">{{ values.suplier.name }}</p></td>
                 <td class="flex flex-row px-2 py-1">
-                  <button class="w-40 bg-green-500 hover:bg-green-700 text-white font-bold py-0 px-4 rounded">Adicionar Fornecedor</button>
-                  <div class="flex flex-col ml-1">
-                    <button class="w-40 bg-blue-500 hover:bg-blue-700 text-white font-bold py-0 px-4 rounded">Detalhe</button>
-                    <button :id="company.companyId" @click="deleteCompany" class="w-40 bg-red-500 hover:bg-red-700 text-white font-bold py-0 px-4 rounded">Deletar</button>
-                  </div>
-                  
+                  <button @click="addSuplier" class="w-40 bg-green-500 hover:bg-green-700 text-white font-bold py-0 px-4 rounded">Adicionar Fornecedor</button>
+                  <button :id="company.companyId" @click="deleteCompany" class="w-40 ml-1 bg-red-500 hover:bg-red-700 text-white font-bold py-0 px-4 rounded">Deletar</button>                  
                 </td>
             </tr>
         </tbody>
@@ -63,8 +59,11 @@ export default {
           });
           fetch("https://localhost:7189/api/company/GetAll")
         .then(response => response.json())
-        .then(data => (this.companys = data.data));
+        .then(data => (this.companys = data.data.$values));
       },
+      addSuplier: function () {
+        alert("Not Implement!");
+      }
     },
     components: {
     }

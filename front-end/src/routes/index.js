@@ -11,6 +11,7 @@ const routes = [
   { path: '/company/cadastro', component: CompanyCadastro },
   { path: '/suplier', component: Suplier },
   { path: '/suplier/cadastro', component: SuplierCadastro },
+  { path: '/detailSuplier', component: Company },
 ]
 
 const router = createRouter({
