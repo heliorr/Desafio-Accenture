@@ -18,6 +18,11 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<ICompanyService, CompanyService>();
 builder.Services.AddScoped<ISuplierService, SuplierService>();
 builder.Services.AddCors();
+builder.Services.AddMvc()
+                .AddJsonOptions(opt =>
+                 {
+                     opt.JsonSerializerOptions.ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.Preserve;
+                 });
 
 var app = builder.Build();
 

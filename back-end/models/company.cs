@@ -1,7 +1,7 @@
 namespace back_end.models
 {
     public class Company {
-        public int Id { get; set; }
+        public int CompanyId { get; set; }
         public string cnpj { get; set; }
         public string name { get; set; }
         public string cep { get; set; }
@@ -10,6 +10,6 @@ namespace back_end.models
         public string cidade { get; set; }
         public string uf { get; set; }
         public int numberHouse { get; set; }
-        public ICollection<suplier>? supliers { get; set; }
+        public ICollection<Companysuplier>? Companysupliers { get; set; }
     }
 }

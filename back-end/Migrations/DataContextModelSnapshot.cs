@@ -22,28 +22,13 @@ namespace back_end.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("Companysuplier", b =>
-                {
-                    b.Property<int>("CompanysId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("supliersId")
-                        .HasColumnType("int");
-
-                    b.HasKey("CompanysId", "supliersId");
-
-                    b.HasIndex("supliersId");
-
-                    b.ToTable("Companysuplier", (string)null);
-                });
-
             modelBuilder.Entity("back_end.models.Company", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("CompanyId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CompanyId"));
 
                     b.Property<string>("bairro")
                         .IsRequired()
@@ -76,14 +61,14 @@ namespace back_end.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Id");
+                    b.HasKey("CompanyId");
 
                     b.ToTable("Company");
 
                     b.HasData(
                         new
                         {
-                            Id = 1,
+                            CompanyId = 1,
                             bairro = "Bairro A",
                             cep = "12345-678",
                             cidade = "Cidade A",
@@ -95,7 +80,7 @@ namespace back_end.Migrations
                         },
                         new
                         {
-                            Id = 2,
+                            CompanyId = 2,
                             bairro = "Bairro B",
                             cep = "98765-432",
                             cidade = "Cidade B",
@@ -107,7 +92,7 @@ namespace back_end.Migrations
                         },
                         new
                         {
-                            Id = 3,
+                            CompanyId = 3,
                             bairro = "Bairro C",
                             cep = "56789-012",
                             cidade = "Cidade C",
@@ -119,13 +104,45 @@ namespace back_end.Migrations
                         });
                 });
 
+            modelBuilder.Entity("back_end.models.Companysuplier", b =>
+                {
+                    b.Property<int>("CompanyId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("suplierId")
+                        .HasColumnType("int");
+
+                    b.HasKey("CompanyId", "suplierId");
+
+                    b.HasIndex("suplierId");
+
+                    b.ToTable("Companysupliers");
+
+                    b.HasData(
+                        new
+                        {
+                            CompanyId = 1,
+                            suplierId = 1
+                        },
+                        new
+                        {
+                            CompanyId = 1,
+                            suplierId = 2
+                        },
+                        new
+                        {
+                            CompanyId = 2,
+                            suplierId = 3
+                        });
+                });
+
             modelBuilder.Entity("back_end.models.suplier", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("suplierId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("suplierId"));
 
                     b.Property<string>("bairro")
                         .IsRequired()
@@ -169,14 +186,14 @@ namespace back_end.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Id");
+                    b.HasKey("suplierId");
 
                     b.ToTable("suplier");
 
                     b.HasData(
                         new
                         {
-                            Id = 1,
+                            suplierId = 1,
                             bairro = "Bairro A",
                             cep = "12345-678",
                             cidade = "Cidade A",
@@ -190,7 +207,7 @@ namespace back_end.Migrations
                         },
                         new
                         {
-                            Id = 2,
+                            suplierId = 2,
                             bairro = "Bairro B",
                             cep = "98765-432",
                             cidade = "Cidade B",
@@ -205,7 +222,7 @@ namespace back_end.Migrations
                         },
                         new
                         {
-                            Id = 3,
+                            suplierId = 3,
                             bairro = "Bairro C",
                             cep = "56789-012",
                             cidade = "Cidade C",
@@ -219,19 +236,33 @@ namespace back_end.Migrations
                         });
                 });
 
-            modelBuilder.Entity("Companysuplier", b =>
+            modelBuilder.Entity("back_end.models.Companysuplier", b =>
                 {
-                    b.HasOne("back_end.models.Company", null)
-                        .WithMany()
-                        .HasForeignKey("CompanysId")
+                    b.HasOne("back_end.models.Company", "Company")
+                        .WithMany("Companysupliers")
+                        .HasForeignKey("CompanyId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("back_end.models.suplier", null)
-                        .WithMany()
-                        .HasForeignKey("supliersId")
+                    b.HasOne("back_end.models.suplier", "suplier")
+                        .WithMany("Companysupliers")
+                        .HasForeignKey("suplierId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Company");
+
+                    b.Navigation("suplier");
+                });
+
+            modelBuilder.Entity("back_end.models.Company", b =>
+                {
+                    b.Navigation("Companysupliers");
+                });
+
+            modelBuilder.Entity("back_end.models.suplier", b =>
+                {
+                    b.Navigation("Companysupliers");
                 });
 #pragma warning restore 612, 618
         }

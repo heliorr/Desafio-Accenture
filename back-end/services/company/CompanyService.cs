@@ -30,15 +30,18 @@ namespace back_end.services.company
         public async Task<ServiceResponse<List<Company>>> GetAllCompanys()
         {
             var serviceResponse = new ServiceResponse<List<Company>>();
-            var dbCompanys = await _context.Company.ToListAsync();
+            var query = _context.Company
+            .Include(r => r.Companysupliers)
+            .ThenInclude(r => r.suplier);
+            var dbCompanys = await query.ToListAsync();
             serviceResponse.data = dbCompanys;
             return serviceResponse;
         }
 
-        public async Task<ServiceResponse<Company>> GetCompanyById(int id)
+        public async Task<ServiceResponse<Company>> GetCompanyById(int CompanyId)
         {
             var serviceResponse = new ServiceResponse<Company>();
-            var dbCompany = await _context.Company.FirstOrDefaultAsync(c => c.Id == id);
+            var dbCompany = await _context.Company.FirstOrDefaultAsync(c => c.CompanyId == CompanyId);
             serviceResponse.data = dbCompany;
             return serviceResponse;
         }
@@ -51,9 +54,9 @@ namespace back_end.services.company
             {
                 var company =
                     await _context.Company
-                        .FirstOrDefaultAsync(c => c.Id == newCompany.Id);
+                        .FirstOrDefaultAsync(c => c.CompanyId == newCompany.CompanyId);
                 if (company is null)
-                    throw new Exception($"Character with Id '{newCompany.Id}' not found.");
+                    throw new Exception($"Character with Id '{newCompany.CompanyId}' not found.");
 
                 company.cnpj = newCompany.cnpj;
                 company.name = newCompany.name;
@@ -76,16 +79,16 @@ namespace back_end.services.company
             return serviceResponse;
         }
 
-        public async Task<ServiceResponse<List<Company>>> DeleteCompany(int id)
+        public async Task<ServiceResponse<List<Company>>> DeleteCompany(int CompanyId)
         {
             var serviceResponse = new ServiceResponse<List<Company>>();
 
             try
             {
                 var company = await _context.Company
-                    .FirstOrDefaultAsync(c => c.Id == id);
+                    .FirstOrDefaultAsync(c => c.CompanyId == CompanyId);
                 if (company is null)
-                    throw new Exception($"Character with Id '{id}' not found.");
+                    throw new Exception($"Character with Id '{CompanyId}' not found.");
 
                 _context.Company.Remove(company);
 

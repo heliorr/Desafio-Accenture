@@ -1,7 +1,7 @@
 namespace back_end.models
 {
     public class suplier {
-        public int Id { get; set; }
+        public int suplierId { get; set; }
         public string cnpjCpf { get; set; }
         public string rg { get; set; }
         public DateTime? dateBirth { get; set; }
@@ -13,6 +13,6 @@ namespace back_end.models
         public string cidade { get; set; }     
         public string uf { get; set; }
         public int numberHouse { get; set; }
-        public ICollection<Company>? Companys { get; set; }
+        public ICollection<Companysuplier>? Companysupliers { get; set; }
     }
 }

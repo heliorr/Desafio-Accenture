@@ -35,10 +35,10 @@ namespace back_end.services.Suplier
             return serviceResponse;
         }
 
-        public async Task<ServiceResponse<suplier>> GetSuplierById(int id)
+        public async Task<ServiceResponse<suplier>> GetSuplierById(int suplierId)
         {
             var serviceResponse = new ServiceResponse<suplier>();
-            var dbSupliers = await _context.suplier.FirstOrDefaultAsync(c => c.Id == id);
+            var dbSupliers = await _context.suplier.FirstOrDefaultAsync(c => c.suplierId == suplierId);
             serviceResponse.data = dbSupliers;
             return serviceResponse;
         }
@@ -51,9 +51,9 @@ namespace back_end.services.Suplier
             {
                 var suplier =
                     await _context.suplier
-                        .FirstOrDefaultAsync(c => c.Id == newSuplier.Id);
+                        .FirstOrDefaultAsync(c => c.suplierId == newSuplier.suplierId);
                 if (suplier is null)
-                    throw new Exception($"Character with Id '{newSuplier.Id}' not found.");
+                    throw new Exception($"Character with Id '{newSuplier.suplierId}' not found.");
 
                 suplier.cnpjCpf = newSuplier.cnpjCpf;
                 suplier.rg = newSuplier.rg;
@@ -79,16 +79,16 @@ namespace back_end.services.Suplier
             return serviceResponse;
         }
 
-        public async Task<ServiceResponse<List<suplier>>> DeleteSuplier(int id)
+        public async Task<ServiceResponse<List<suplier>>> DeleteSuplier(int suplierId)
         {
             var serviceResponse = new ServiceResponse<List<suplier>>();
 
             try
             {
                 var suplier = await _context.suplier
-                    .FirstOrDefaultAsync(c => c.Id == id);
+                    .FirstOrDefaultAsync(c => c.suplierId == suplierId);
                 if (suplier is null)
-                    throw new Exception($"Character with Id '{id}' not found.");
+                    throw new Exception($"Character with Id '{suplierId}' not found.");
 
                 _context.suplier.Remove(suplier);
 
