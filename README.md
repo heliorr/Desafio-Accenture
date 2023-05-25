@@ -10,7 +10,7 @@ Back-end:
 > Desenvolvido usando: C#, API Restful, DotNet, .NET Framework, Entity Framework, SQLServer.
 
 Front-end:
-> Desenvolvido usando: Vue.js, HTML, CSS e Javascript, Docker.
+> Desenvolvido usando: Vue.js, HTML, CSS e Javascript.
 
 <details>
 <summary><strong> Estrutura do projeto</strong></summary><br />
