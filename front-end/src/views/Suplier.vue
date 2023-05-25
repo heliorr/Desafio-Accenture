@@ -37,7 +37,7 @@
                 </td>
                 <td class="flex justify-between px-6 py-4">
                   <button class="w-30 bg-blue-500 hover:bg-blue-700 text-white font-bold py-0 px-4 rounded">Detalhe</button>
-                  <button class="w-30 bg-red-500 hover:bg-red-700 text-white font-bold py-0 px-4 rounded">Deletar</button>
+                  <button :id="suplier.id" @click="deleteSuplier" class="w-30 bg-red-500 hover:bg-red-700 text-white font-bold py-0 px-4 rounded">Deletar</button>
                 </td>
             </tr>
         </tbody>
@@ -80,6 +80,18 @@ export default {
         }else{
           this.supliersFilter = this.supliers;
         }
+      },
+      deleteSuplier: async function (e) {
+        e.preventDefault()
+        await fetch(`https://localhost:7189/api/suplier/${e.target.id}`, {
+          method: "DELETE"
+          });
+          fetch("https://localhost:7189/api/suplier/GetAll")
+        .then(response => response.json())
+        .then(data => {
+            this.supliers = data.data;
+            this.supliersFilter = data.data;
+          });
       },
     },
     components: {

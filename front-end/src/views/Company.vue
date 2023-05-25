@@ -31,7 +31,7 @@
                   <button class="w-40 bg-green-500 hover:bg-green-700 text-white font-bold py-0 px-4 rounded">Adicionar Fornecedor</button>
                   <div class="flex flex-col ml-1">
                     <button class="w-40 bg-blue-500 hover:bg-blue-700 text-white font-bold py-0 px-4 rounded">Detalhe</button>
-                    <button class="w-40 bg-red-500 hover:bg-red-700 text-white font-bold py-0 px-4 rounded">Deletar</button>
+                    <button :id="company.id" @click="deleteCompany" class="w-40 bg-red-500 hover:bg-red-700 text-white font-bold py-0 px-4 rounded">Deletar</button>
                   </div>
                   
                 </td>
@@ -54,6 +54,17 @@ export default {
       fetch("https://localhost:7189/api/company/GetAll")
         .then(response => response.json())
         .then(data => (this.companys = data.data));
+    },
+    methods: {
+      deleteCompany: async function (e) {
+        e.preventDefault()
+        await fetch(`https://localhost:7189/api/company/${e.target.id}`, {
+          method: "DELETE"
+          });
+          fetch("https://localhost:7189/api/company/GetAll")
+        .then(response => response.json())
+        .then(data => (this.companys = data.data));
+      },
     },
     components: {
     }
