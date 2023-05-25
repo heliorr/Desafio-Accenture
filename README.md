@@ -77,7 +77,7 @@ Na sua máquina você deve ter:
 
     - Execute o comando `docker-compose up --build` na pasta raíz do projeto;
     - Aguarde que todos os containers estejam saudáveis;
-    - Entre na pasta Back-end e execute os ccomandos `dotnet ef databaseupdate` e `dotnet run watch`;
+    - Acesse a pasta Back-end e execute os comandos `dotnet ef databaseupdate` e `dotnet run watch`;
     - Acesse em seu browser o endereço: `http://localhost:8080`;
 
   </details>
