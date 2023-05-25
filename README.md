@@ -2,7 +2,7 @@
 
 # O que é o Teste-Accenture?
 
-É uma aplicação FullStack dockerizada que consiste em uma API Restful, com um simples CRUD de Empresas e Fornecedores no Backend, consumindo um Banco de Dados SqlServer e um Frontend desenvolvido em Vue js que apresenta a lista completa das Empresas e Fornecedores, a partir do consumo da API.
+É uma aplicação FullStack dockerizada que consiste em uma API Restful, com um simples CRUD de Empresas e Fornecedores no Backend, consumindo um Banco de Dados SQLServer e um Frontend desenvolvido em Vue js que apresenta a lista completa das Empresas e Fornecedores, a partir do consumo da API.
 
 ## Técnologias usadas
 
