@@ -18,7 +18,7 @@ namespace back_end.services.company
         public CompanyService(DataContext context){
             _context = context;
         }
-        
+
         public async Task<ServiceResponse<List<Company>>> AddCompany(Company newCompany)
         {
             var serviceResponse = new ServiceResponse<List<Company>>();

@@ -14,6 +14,11 @@ namespace back_end.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Company>()
+            .HasMany(x => x.supliers)
+            .WithMany(y => y.Companys)
+            .UsingEntity(j => j.ToTable("Companysuplier"));
+
             modelBuilder.Entity<Company>().HasData(
                 new Company {
                             Id = 1,
@@ -95,10 +100,10 @@ namespace back_end.Data
                             numberHouse= 789
                         } 
             );
-
         }
 
         public DbSet<Company> Company => Set<Company>();
         public DbSet<suplier> suplier => Set<suplier>();
+
     }
 }

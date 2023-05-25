@@ -12,7 +12,7 @@ using back_end.Data;
 namespace back_end.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20230524233117_Company")]
+    [Migration("20230525001153_Company")]
     partial class Company
     {
         /// <inheritdoc />
@@ -27,17 +27,17 @@ namespace back_end.Migrations
 
             modelBuilder.Entity("Companysuplier", b =>
                 {
-                    b.Property<int>("CompanyId")
+                    b.Property<int>("CompanysId")
                         .HasColumnType("int");
 
-                    b.Property<int>("suplierId")
+                    b.Property<int>("supliersId")
                         .HasColumnType("int");
 
-                    b.HasKey("CompanyId", "suplierId");
+                    b.HasKey("CompanysId", "supliersId");
 
-                    b.HasIndex("suplierId");
+                    b.HasIndex("supliersId");
 
-                    b.ToTable("Companysuplier");
+                    b.ToTable("Companysuplier", (string)null);
                 });
 
             modelBuilder.Entity("back_end.models.Company", b =>
@@ -226,13 +226,13 @@ namespace back_end.Migrations
                 {
                     b.HasOne("back_end.models.Company", null)
                         .WithMany()
-                        .HasForeignKey("CompanyId")
+                        .HasForeignKey("CompanysId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("back_end.models.suplier", null)
                         .WithMany()
-                        .HasForeignKey("suplierId")
+                        .HasForeignKey("supliersId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

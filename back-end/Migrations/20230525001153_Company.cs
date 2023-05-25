@@ -60,21 +60,21 @@ namespace back_end.Migrations
                 name: "Companysuplier",
                 columns: table => new
                 {
-                    CompanyId = table.Column<int>(type: "int", nullable: false),
-                    suplierId = table.Column<int>(type: "int", nullable: false)
+                    CompanysId = table.Column<int>(type: "int", nullable: false),
+                    supliersId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Companysuplier", x => new { x.CompanyId, x.suplierId });
+                    table.PrimaryKey("PK_Companysuplier", x => new { x.CompanysId, x.supliersId });
                     table.ForeignKey(
-                        name: "FK_Companysuplier_Company_CompanyId",
-                        column: x => x.CompanyId,
+                        name: "FK_Companysuplier_Company_CompanysId",
+                        column: x => x.CompanysId,
                         principalTable: "Company",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Companysuplier_suplier_suplierId",
-                        column: x => x.suplierId,
+                        name: "FK_Companysuplier_suplier_supliersId",
+                        column: x => x.supliersId,
                         principalTable: "suplier",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
@@ -101,9 +101,9 @@ namespace back_end.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Companysuplier_suplierId",
+                name: "IX_Companysuplier_supliersId",
                 table: "Companysuplier",
-                column: "suplierId");
+                column: "supliersId");
         }
 
         /// <inheritdoc />
