@@ -43,6 +43,42 @@ namespace back_end.services.Suplier
             return serviceResponse;
         }
 
+        public async Task<ServiceResponse<suplier>> UpdateSuplier(suplier newSuplier)
+        {
+            var serviceResponse = new ServiceResponse<suplier>();
+
+            try
+            {
+                var suplier =
+                    await _context.suplier
+                        .FirstOrDefaultAsync(c => c.Id == newSuplier.Id);
+                if (suplier is null)
+                    throw new Exception($"Character with Id '{newSuplier.Id}' not found.");
+
+                suplier.cnpjCpf = newSuplier.cnpjCpf;
+                suplier.rg = newSuplier.rg;
+                suplier.dateBirth = newSuplier.dateBirth;
+                suplier.email = newSuplier.email;
+                suplier.name = newSuplier.name;
+                suplier.cep = newSuplier.cep;
+                suplier.bairro = newSuplier.bairro;
+                suplier.logradouro = newSuplier.logradouro;
+                suplier.cidade = newSuplier.cidade;
+                suplier.uf = newSuplier.uf;
+                suplier.numberHouse = newSuplier.numberHouse;
+
+
+                await _context.SaveChangesAsync();
+            }
+            catch (Exception ex)
+            {
+                serviceResponse.Sucess = false;
+                serviceResponse.Message = ex.Message;
+            }
+
+            return serviceResponse;
+        }
+
         public async Task<ServiceResponse<List<suplier>>> DeleteSuplier(int id)
         {
             var serviceResponse = new ServiceResponse<List<suplier>>();

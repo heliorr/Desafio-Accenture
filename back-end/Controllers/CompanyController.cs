@@ -34,6 +34,17 @@ namespace back_end.Controllers
             return Ok(await _companyService.AddCompany(newCompany));
         }
 
+        [HttpPut]
+        public async Task<ActionResult<ServiceResponse<List<Company>>>> UpdateCompany(Company newCompany)
+        {
+            var response = await _companyService.UpdateCompany(newCompany);
+            if (response.data is null)
+            {
+                return NotFound(response);
+            }
+            return Ok(response);
+        }
+
         [HttpDelete("{id}")]
         public async Task<ActionResult<ServiceResponse<Company>>> DeleteCompany(int id)
         {

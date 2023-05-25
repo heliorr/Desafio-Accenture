@@ -43,6 +43,39 @@ namespace back_end.services.company
             return serviceResponse;
         }
 
+        public async Task<ServiceResponse<Company>> UpdateCompany(Company newCompany)
+        {
+            var serviceResponse = new ServiceResponse<Company>();
+
+            try
+            {
+                var company =
+                    await _context.Company
+                        .FirstOrDefaultAsync(c => c.Id == newCompany.Id);
+                if (company is null)
+                    throw new Exception($"Character with Id '{newCompany.Id}' not found.");
+
+                company.cnpj = newCompany.cnpj;
+                company.name = newCompany.name;
+                company.cep = newCompany.cep;
+                company.bairro = newCompany.bairro;
+                company.logradouro = newCompany.logradouro;
+                company.cidade = newCompany.cidade;
+                company.uf = newCompany.uf;
+                company.numberHouse = newCompany.numberHouse;
+
+
+                await _context.SaveChangesAsync();
+            }
+            catch (Exception ex)
+            {
+                serviceResponse.Sucess = false;
+                serviceResponse.Message = ex.Message;
+            }
+
+            return serviceResponse;
+        }
+
         public async Task<ServiceResponse<List<Company>>> DeleteCompany(int id)
         {
             var serviceResponse = new ServiceResponse<List<Company>>();
@@ -69,5 +102,6 @@ namespace back_end.services.company
 
             return serviceResponse;
         }
+        
     }
 }

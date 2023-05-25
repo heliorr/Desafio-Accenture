@@ -13,6 +13,8 @@ namespace back_end.services.Suplier
 
         Task<ServiceResponse<List<suplier>>> AddSuplier(suplier newSuplier);
 
+        Task<ServiceResponse<suplier>> UpdateSuplier(suplier newSuplier);
+
         Task<ServiceResponse<List<suplier>>> DeleteSuplier(int id);
     }
 }

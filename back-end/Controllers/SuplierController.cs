@@ -34,6 +34,17 @@ namespace back_end.Controllers
             return Ok(await _suplierService.AddSuplier(newSuplier));
         }
 
+        [HttpPut]
+        public async Task<ActionResult<ServiceResponse<List<suplier>>>> UpdateSuplier(suplier newSuplier)
+        {
+            var response = await _suplierService.UpdateSuplier(newSuplier);
+            if (response.data is null)
+            {
+                return NotFound(response);
+            }
+            return Ok(response);
+        }
+
         [HttpDelete("{id}")]
         public async Task<ActionResult<ServiceResponse<suplier>>> DeleteSuplier(int id)
         {
