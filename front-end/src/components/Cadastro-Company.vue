@@ -74,9 +74,24 @@ export default {
               }
           }
       },
-      submit(e){
+      async submit(e){
         e.preventDefault();
-        console.log(this.data.address.uf);
+        const _data = {
+            cnpj: this.cnpj,
+            name: this.name,
+            cep: this.cep,
+            bairro: this.data.bairro,
+            logradouro: this.data.logradouro,
+            cidade: this.data.cidade,
+            uf: this.data.uf,
+            numberHouse: this.number
+          };
+        await fetch("https://localhost:7189/api/company", {
+          method: "POST",
+          headers: {"Content-type": "application/json; charset=UTF-8"},
+          body: JSON.stringify(_data),
+          });
+        this.$router.push('/company');
       }
   }
 }

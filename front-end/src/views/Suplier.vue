@@ -24,7 +24,7 @@
                   {{ suplier.name }}
                 </td>
                 <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                  {{ suplier.logradouro }}, {{ suplier.bairro }}, {{ suplier.cidade }}-{{ suplier.uf }}
+                 {{ suplier.logradouro }}, {{ suplier.bairro }}, {{ suplier.numberHouse }}, {{ suplier.cidade }}-{{ suplier.uf }}
                 </td>
                 <td class="px-6 py-4">
                   {{ suplier.cnpjCpf.length == 11 ? suplier.cnpjCpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, "$1.$2.$3-$4") : suplier.cnpjCpf.replace(/^(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})/, "$1 $2 $3/$4-$5") }}
