@@ -31,7 +31,7 @@ Front-end:
   
   3️⃣ **Front-end:**
   - Deve rodar na porta `8080`;
-  - O front se comunica com serviço de back-end pela url `http://localhost:8080` através dos endpoints contruídos.
+  - O front se comunica com serviço de back-end pela url `http://localhost:7189` através dos endpoints contruídos.
   
   4️⃣ **Docker:**
   - O `docker-compose` tem a responsabilidade de unir os serviços frontend e db e subir parte do projeto com o comando `docker-compose up --build`;
