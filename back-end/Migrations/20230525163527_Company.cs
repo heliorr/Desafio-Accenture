@@ -95,9 +95,9 @@ namespace back_end.Migrations
                 columns: new[] { "suplierId", "bairro", "cep", "cidade", "cnpjCpf", "dateBirth", "email", "logradouro", "name", "numberHouse", "rg", "uf" },
                 values: new object[,]
                 {
-                    { 1, "Bairro A", "12345-678", "Cidade A", "12345678900001", null, "test1@test.com", "Rua A", "Empresa A", 123, "0", "UF A" },
-                    { 2, "Bairro B", "98765-432", "Cidade B", "11544610516", new DateTime(1995, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "test2@test.com", "Rua B", "Empresa B", 456, "555555555", "UF B" },
-                    { 3, "Bairro C", "56789-012", "Cidade C", "56789012300001", null, "test3@test.com", "Rua C", "Empresa C", 789, "0", "UF C" }
+                    { 1, "Bairro A", "12345-678", "Cidade A", "12345678900001", null, "test1@test.com", "Rua A", "Fornecedor A", 123, "0", "UF A" },
+                    { 2, "Bairro B", "98765-432", "Cidade B", "11544610516", new DateTime(1995, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "test2@test.com", "Rua B", "Fornecedor B", 456, "555555555", "UF B" },
+                    { 3, "Bairro C", "56789-012", "Cidade C", "56789012300001", null, "test3@test.com", "Rua C", "Fornecedor C", 789, "0", "UF C" }
                 });
 
             migrationBuilder.InsertData(
@@ -107,7 +107,7 @@ namespace back_end.Migrations
                 {
                     { 1, 1 },
                     { 1, 2 },
-                    { 2, 3 }
+                    { 3, 3 }
                 });
 
             migrationBuilder.CreateIndex(

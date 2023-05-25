@@ -131,7 +131,7 @@ namespace back_end.Migrations
                         },
                         new
                         {
-                            CompanyId = 2,
+                            CompanyId = 3,
                             suplierId = 3
                         });
                 });
@@ -200,7 +200,7 @@ namespace back_end.Migrations
                             cnpjCpf = "12345678900001",
                             email = "test1@test.com",
                             logradouro = "Rua A",
-                            name = "Empresa A",
+                            name = "Fornecedor A",
                             numberHouse = 123,
                             rg = "0",
                             uf = "UF A"
@@ -215,7 +215,7 @@ namespace back_end.Migrations
                             dateBirth = new DateTime(1995, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             email = "test2@test.com",
                             logradouro = "Rua B",
-                            name = "Empresa B",
+                            name = "Fornecedor B",
                             numberHouse = 456,
                             rg = "555555555",
                             uf = "UF B"
@@ -229,7 +229,7 @@ namespace back_end.Migrations
                             cnpjCpf = "56789012300001",
                             email = "test3@test.com",
                             logradouro = "Rua C",
-                            name = "Empresa C",
+                            name = "Fornecedor C",
                             numberHouse = 789,
                             rg = "0",
                             uf = "UF C"
@@ -239,7 +239,7 @@ namespace back_end.Migrations
             modelBuilder.Entity("back_end.models.Companysuplier", b =>
                 {
                     b.HasOne("back_end.models.Company", "Company")
-                        .WithMany("Companysupliers")
+                        .WithMany("Companyssuplier")
                         .HasForeignKey("CompanyId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -257,7 +257,7 @@ namespace back_end.Migrations
 
             modelBuilder.Entity("back_end.models.Company", b =>
                 {
-                    b.Navigation("Companysupliers");
+                    b.Navigation("Companyssuplier");
                 });
 
             modelBuilder.Entity("back_end.models.suplier", b =>

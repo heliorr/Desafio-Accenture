@@ -10,6 +10,6 @@ namespace back_end.models
         public string cidade { get; set; }
         public string uf { get; set; }
         public int numberHouse { get; set; }
-        public ICollection<Companysuplier>? Companysupliers { get; set; }
+        public ICollection<Companysuplier>? Companyssuplier { get; set; }
     }
 }

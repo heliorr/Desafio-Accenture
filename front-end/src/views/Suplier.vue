@@ -16,9 +16,9 @@
             </tr>
         </thead>
         <tbody>
-            <tr v-for="suplier in supliersFilter" :key="suplier.id" class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+            <tr v-for="suplier in supliersFilter" :key="suplier.suplierId" class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                 <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                  {{ suplier.id }}
+                  {{ suplier.suplierId }}
                 </td>
                 <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                   {{ suplier.name }}
@@ -37,7 +37,7 @@
                 </td>
                 <td class="flex justify-between px-6 py-4">
                   <button class="w-30 bg-blue-500 hover:bg-blue-700 text-white font-bold py-0 px-4 rounded">Detalhe</button>
-                  <button :id="suplier.id" @click="deleteSuplier" class="w-30 bg-red-500 hover:bg-red-700 text-white font-bold py-0 px-4 rounded">Deletar</button>
+                  <button :id="suplier.suplierId" @click="deleteSuplier" class="w-30 bg-red-500 hover:bg-red-700 text-white font-bold py-0 px-4 rounded">Deletar</button>
                 </td>
             </tr>
         </tbody>
@@ -61,8 +61,8 @@ export default {
       fetch("https://localhost:7189/api/suplier/GetAll")
         .then(response => response.json())
         .then(data => {
-            this.supliers = data.data;
-            this.supliersFilter = data.data;
+            this.supliers = data.data.$values;
+            this.supliersFilter = data.data.$values;
           });
           
     },

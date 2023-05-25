@@ -57,7 +57,7 @@ namespace back_end.Data
                             rg= "0",
                             dateBirth= null,
                             email= "test1@test.com",
-                            name= "Empresa A",
+                            name= "Fornecedor A",
                             cep= "12345-678",
                             bairro= "Bairro A",
                             logradouro= "Rua A",
@@ -71,7 +71,7 @@ namespace back_end.Data
                             rg= "555555555",
                             dateBirth = DateTime.Parse("Jan 1, 1995"),
                             email= "test2@test.com",
-                            name= "Empresa B",
+                            name= "Fornecedor B",
                             cep= "98765-432",
                             bairro= "Bairro B",
                             logradouro= "Rua B",
@@ -86,7 +86,7 @@ namespace back_end.Data
                             rg= "0",
                             dateBirth= null,
                             email= "test3@test.com",
-                            name= "Empresa C",
+                            name= "Fornecedor C",
                             cep= "56789-012",
                             bairro= "Bairro C",
                             logradouro= "Rua C",
@@ -99,7 +99,7 @@ namespace back_end.Data
                 .HasKey(bc => new { bc.CompanyId, bc.suplierId });  
             modelBuilder.Entity<Companysuplier>()
                 .HasOne(bc => bc.Company)
-                .WithMany(b => b.Companysupliers)
+                .WithMany(b => b.Companyssuplier)
                 .HasForeignKey(bc => bc.CompanyId);  
             modelBuilder.Entity<Companysuplier>()
                 .HasOne(bc => bc.suplier)
@@ -117,8 +117,8 @@ namespace back_end.Data
                         },
                 new Companysuplier {
                             suplierId= 3,
-                            CompanyId = 2,
-                        } 
+                            CompanyId = 3,
+                        }
             );
         }
 

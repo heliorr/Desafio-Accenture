@@ -31,7 +31,7 @@ namespace back_end.services.company
         {
             var serviceResponse = new ServiceResponse<List<Company>>();
             var query = _context.Company
-            .Include(r => r.Companysupliers)
+            .Include(r => r.Companyssuplier)
             .ThenInclude(r => r.suplier);
             var dbCompanys = await query.ToListAsync();
             serviceResponse.data = dbCompanys;
