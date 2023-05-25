@@ -63,7 +63,7 @@ export default {
       cnpj: '',
       disableRgeDate: 'hide',
       RG: '',
-      date: '',
+      date: '2000-01-01',
       name: '',
       cep: '',
       number: '',
@@ -117,10 +117,11 @@ export default {
       },
       async submitFetch(){
           const _data = {
-            cnpj: this.cnpj,
+            cnpjCpf: this.cnpj,
             rg: this.RG,
             dateBirth: this.date,
             name: this.name,
+            email: this.email,
             cep: this.cep,
             bairro: this.data.bairro,
             logradouro: this.data.logradouro,
