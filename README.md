@@ -71,7 +71,7 @@ Na sua máquina você deve ter:
   1. Clone o repositório
 - Utilize o comando: `git clone git@github.com:heliorr/Desafio-Accenture.git`<br />
 2. Acesse a pasta do projeto
-- Acesse a pasta Teste-CashForce com `cd Desafio-Accenture`;<br />
+- Acesse a pasta Desafio-Accenture com `cd Desafio-Accenture`;<br />
 3. Suba a aplicação 
  <summary><strong> 🐳 Com Container Docker-Compose </strong></summary><br />
 
