@@ -86,7 +86,7 @@ export default {
   methods:{
       checkCep: async function (){
           if(this.cep.length != 8){
-            console.log('invalido1')
+            alert('CEP Invalido!');
           }else{
               try {
                 const url = `http://cep.la/${this.cep}`;

@@ -4048,11 +4048,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/helio/Projeto Pessoal/Desafio-Accenture/back-end/back-end.csproj",
+      "projectUniqueName": "/home/helio/Projetos/Desafio-Accenture/back-end/back-end.csproj",
       "projectName": "back-end",
-      "projectPath": "/home/helio/Projeto Pessoal/Desafio-Accenture/back-end/back-end.csproj",
+      "projectPath": "/home/helio/Projetos/Desafio-Accenture/back-end/back-end.csproj",
       "packagesPath": "/home/helio/.nuget/packages/",
-      "outputPath": "/home/helio/Projeto Pessoal/Desafio-Accenture/back-end/obj/",
+      "outputPath": "/home/helio/Projetos/Desafio-Accenture/back-end/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/home/helio/.nuget/NuGet/NuGet.Config"
