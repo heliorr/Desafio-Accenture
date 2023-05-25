@@ -6,6 +6,7 @@
             <tr>
                 <th scope="col" class="px-6 py-3">Codigo</th>
                 <th scope="col" class="px-6 py-3">Nome</th>
+                <th scope="col" class="px-6 py-3">Endereço</th>
                 <th scope="col" class="px-6 py-3">CNPJ</th>
                 <th scope="col" class="px-6 py-3">Fornecedores</th>
                 <th scope="col" class="px-6 py-3">Ações</th>
@@ -19,8 +20,11 @@
                 <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                   {{ company.name }}
                 </td>
+                <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                  {{ company.logradouro }}, {{ company.bairro }}, {{ company.cidade }}-{{ company.uf }}
+                </td>
                 <td class="px-6 py-4">
-                  {{ company.cnpj }}
+                  {{ company.cnpj.replace(/^(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})/, "$1 $2 $3/$4-$5") }}
                 </td>
                 <td class="px-6 py-4">t</td>
                 <td class="flex flex-row px-2 py-1">
